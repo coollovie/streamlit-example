@@ -9,61 +9,45 @@ import random
 #dinner_inputs = list( st.text_input("Enter dinner text"))
 
 
-breakfast_meals = st.text_input("Enter breakfast text").replace(' ', '_').split(',')
-lunch_meals = st.text_input("Enter lunch text").replace(' ', '_').split(',')
-dinner_meals = st.text_input("Enter dinner text").replace(' ', '_').split(',')
+breakfast_inputs = st.text_input("Enter breakfast text").replace(' ', '_').split(',')
+lunch_inputs = st.text_input("Enter lunch text").replace(' ', '_').split(',')
+dinner_inputs = st.text_input("Enter dinner text").replace(' ', '_').split(',')
 
 
+breakfast_inputs = 'ferfef,feferf'.replace(' ', '_').split(',')
+lunch_inputs = 'ferfef,yhyhyj'.replace(' ', '_').split(',')
+dinner_inputs = 'ferfef,yhyhyj,defr'.replace(' ', '_').split(',')
 
-# List of Indian meals for breakfast, lunch, and dinner
-#breakfast_meals = ["Aloo Paratha", "Idli Sambar", "Poha", "Upma", "Dosa"]
-#lunch_meals = ["Dal Rice", "Chole Bhature", "Paneer Tikka Masala with Roti", "Chicken Biryani", "Rajma Rice"]
-#dinner_meals = ["Butter Chicken with Naan", "Fish Curry with Rice", "Matar Paneer with Roti", "Veg Pulao", "Palak Paneer with Roti"]
+
+breakfast_default = ["Aloo Pronthha", "Milk Meusli", "Poha", "Upma", "Ajwain Pronthha", "Suji Chila","Bread Omelette","Butter Toast & Milk"]
+lunch_default = ["Dal Roti","Pulao", "Matar Paneer", "Rajma Rice"]
+dinner_default = ["Dal", "Fish Curry with Rice", "Matar Paneer with Roti", "Veg Pulao", "Palak Paneer with Roti"]
 
 # Days of the week
 days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
-# Function to plan meals
-def plan_meals(breakfast_inputs = ["Aloo Pronthha", "Milk Meusli", "Poha", "Upma", "Ajwain Pronthha", "Suji Chila","Bread Omelette","Butter Toast & Milk"],
-               lunch_inputs = ["Dal Roti","Pulao", "", "Rajma Rice"],
-               dinner_inputs = ["Dal", "Fish Curry with Rice", "Matar Paneer with Roti", "Veg Pulao", "Palak Paneer with Roti"]):
-    # Create a dictionary to store the meal plan
-    meal_plan = {}
+#check if provided length is less than days
+if len(breakfast_inputs) < len(days):
+    breakfast_inputs = breakfast_inputs + random.choices(breakfast_default, k = len(days)-len(breakfast_inputs))
 
-    # For each day of the week
-    for day in days:
-        # Select a random meal from the list for each meal time
-        breakfast = random.choice(breakfast_inputs)
-        lunch = random.choice(lunch_inputs)
-        dinner = random.choice(dinner_inputs)
+if len(lunch_inputs) < len(days):
+    lunch_inputs = lunch_inputs + random.choices(lunch_default, k = len(days)-len(lunch_inputs))
 
-        # Add the meals to the meal plan
-        meal_plan[day] = {"Breakfast": breakfast.replace('_', ' ').title(),
-                          "Lunch": lunch.replace('_', ' ').title(),
-                          "Dinner": dinner.replace('_', ' ').title()}
-    
-    df = pd.DataFrame(meal_plan).T
-
-    # Return the meal plan
-    return df
+if len(breakfast_inputs) < len(days):
+    breakfast_inputs = breakfast_inputs + random.choices(breakfast_default, k = len(days)-len(breakfast_inputs))
 
 
-# Main function
-def main():
-    st.title('Meal Planner')
-    
-    #st.write('The user entered:', user_input)
-
-    # Plan the meals
-    df = plan_meals()
-
-    # Display the DataFrame
-    st.dataframe(df)
-    
-    
+breakfast_inputs = random.sample(breakfast_inputs, len(days))
+lunch_inputs = random.sample(lunch_inputs, len(days))
+dinner_inputs = random.sample(dinner_inputs, len(days))
 
 
+df = pd.DataFrame({"Day":days,
+                   "Breakfast":breakfast_inputs,
+                   "Lunch":lunch_inputs,
+                   "Dinner":dinner_inputs})
 
+st.title('Meal Planner')
 
-if __name__ == "__main__":
-    main()
+# Display the DataFrame
+st.dataframe(df)
