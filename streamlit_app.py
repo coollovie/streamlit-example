@@ -4,14 +4,14 @@ import pandas as pd
 import random
 
 
-breakfast_inputs =list( st.text_input("Enter breakfast text"))
-lunch_inputs = list(st.text_input("Enter lunch text"))
-dinner_inputs = list( st.text_input("Enter dinner text"))
+#breakfast_inputs =list( st.text_input("Enter breakfast text"))
+#lunch_inputs = list(st.text_input("Enter lunch text"))
+#dinner_inputs = list( st.text_input("Enter dinner text"))
 
 
-#breakfast_inputs = st.text_input("Enter breakfast text").replace(' ', '_').split(',')
-#lunch_inputs = st.text_input("Enter lunch text").replace(' ', '_').split(',')
-#dinner_inputs = st.text_input("Enter dinner text").replace(' ', '_').split(',')
+breakfast_inputs = st.text_input("Enter breakfast text").replace(' ', '_').split(',')
+lunch_inputs = st.text_input("Enter lunch text").replace(' ', '_').split(',')
+dinner_inputs = st.text_input("Enter dinner text").replace(' ', '_').split(',')
 
 
 #breakfast_inputs = 'ferfef,feferf'.replace(' ', '_').split(',')
