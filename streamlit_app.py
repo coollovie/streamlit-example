@@ -4,14 +4,14 @@ import pandas as pd
 import random
 
 
-#breakfast_inputs =list( st.text_input("Enter breakfast text"))
-#lunch_inputs = list(st.text_input("Enter lunch text"))
-#dinner_inputs = list( st.text_input("Enter dinner text"))
+breakfast_inputs =list( st.text_input("Enter breakfast text"))
+lunch_inputs = list(st.text_input("Enter lunch text"))
+dinner_inputs = list( st.text_input("Enter dinner text"))
 
 
-breakfast_inputs = st.text_input("Enter breakfast text").replace(' ', '_').split(',')
-lunch_inputs = st.text_input("Enter lunch text").replace(' ', '_').split(',')
-dinner_inputs = st.text_input("Enter dinner text").replace(' ', '_').split(',')
+#breakfast_inputs = st.text_input("Enter breakfast text").replace(' ', '_').split(',')
+#lunch_inputs = st.text_input("Enter lunch text").replace(' ', '_').split(',')
+#dinner_inputs = st.text_input("Enter dinner text").replace(' ', '_').split(',')
 
 
 breakfast_inputs = 'ferfef,feferf'.replace(' ', '_').split(',')
@@ -37,9 +37,9 @@ if len(dinner_inputs) < len(days):
     dinner_inputs = dinner_inputs + random.choices(dinner_default, k = len(days)-len(dinner_inputs))
 
 
-breakfast_inputs = random.choices(breakfast_inputs, len(days))
-lunch_inputs = random.choices(lunch_inputs, len(days))
-dinner_inputs = random.choices(dinner_inputs, len(days))
+breakfast_inputs = random.choices(breakfast_inputs, k = len(days))
+lunch_inputs = random.choices(lunch_inputs, k = len(days))
+dinner_inputs = random.choices(dinner_inputs, k = len(days))
 
 
 df = pd.DataFrame({"Day":days,
