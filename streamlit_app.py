@@ -14,9 +14,9 @@ dinner_inputs = list( st.text_input("Enter dinner text"))
 #dinner_inputs = st.text_input("Enter dinner text").replace(' ', '_').split(',')
 
 
-breakfast_inputs = 'ferfef,feferf'.replace(' ', '_').split(',')
-lunch_inputs = 'ferfef,yhyhyj'.replace(' ', '_').split(',')
-dinner_inputs = 'ferfef,yhyhyj,defr'.replace(' ', '_').split(',')
+#breakfast_inputs = 'ferfef,feferf'.replace(' ', '_').split(',')
+#lunch_inputs = 'ferfef,yhyhyj'.replace(' ', '_').split(',')
+#dinner_inputs = 'ferfef,yhyhyj,defr'.replace(' ', '_').split(',')
 
 
 breakfast_default = ["Aloo Pronthha", "Milk Meusli", "Poha", "Upma", "Ajwain Pronthha", "Suji Chila","Bread Omelette","Butter Toast & Milk"]
