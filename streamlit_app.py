@@ -33,13 +33,13 @@ if len(breakfast_inputs) < len(days):
 if len(lunch_inputs) < len(days):
     lunch_inputs = lunch_inputs + random.choices(lunch_default, k = len(days)-len(lunch_inputs))
 
-if len(breakfast_inputs) < len(days):
-    breakfast_inputs = breakfast_inputs + random.choices(breakfast_default, k = len(days)-len(breakfast_inputs))
+if len(dinner_inputs) < len(days):
+    dinner_inputs = dinner_inputs + random.choices(dinner_default, k = len(days)-len(dinner_inputs))
 
 
-breakfast_inputs = random.sample(breakfast_inputs, len(days))
-lunch_inputs = random.sample(lunch_inputs, len(days))
-dinner_inputs = random.sample(dinner_inputs, len(days))
+breakfast_inputs = random.choices(breakfast_inputs, len(days))
+lunch_inputs = random.choices(lunch_inputs, len(days))
+dinner_inputs = random.choices(dinner_inputs, len(days))
 
 
 df = pd.DataFrame({"Day":days,
